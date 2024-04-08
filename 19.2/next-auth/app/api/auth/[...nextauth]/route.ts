@@ -12,7 +12,9 @@ const handler = NextAuth({
             },
             async authorize(credentials: any) {
 
-                console.log(credentials``)
+                console.log(credentials)
+                //vaildation 
+                // like prisma findone
                 return {
                     id: "user1"
                 }   
