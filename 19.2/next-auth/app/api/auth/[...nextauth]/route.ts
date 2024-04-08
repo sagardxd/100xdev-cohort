@@ -1,28 +1,8 @@
-import { RequestInternal, Awaitable, User } from "next-auth";
+import { NEXT_AUTH_CONFIG } from "@/app/lib/auth";
 import NextAuth from "next-auth/next";
-import CredentialsProvider from "next-auth/providers/credentials";
 
-const handler = NextAuth({
-    providers: [
-        CredentialsProvider({
-            name: "Email",
-            credentials: {
-                username: { label: "Username", type: "text", placeholder: "sagardxd" },
-                password: { label: "Password", type: "password", placeholder:"123456" }
-            },
-            async authorize(credentials: any) {
 
-                console.log(credentials)
-                //vaildation 
-                // like prisma findone
-                return {
-                    id: "user1"
-                }   
-            }
-        })
-    ],
-    secret: process.env.NEXTAUTH_SECRET
-})
+const handler = NextAuth(NEXT_AUTH_CONFIG)
 
 export const GET = handler;
 export const POST = handler;
